@@ -1,0 +1,156 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #d32f2f;
+  letter-spacing: -0.5px;
+}
+
+.logo img {
+  height: 44px;
+  width: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Desktop links */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.links a,
+.btnLink {
+  position: relative;
+  background: none;
+  border: none;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.25s ease;
+  padding: 6px 0;
+}
+
+/* Underline animation */
+.links a::after,
+.btnLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #d32f2f;
+  transition: width 0.3s ease;
+}
+
+.links a:hover,
+.btnLink:hover {
+  color: #d32f2f;
+}
+
+.links a:hover::after,
+.btnLink:hover::after {
+  width: 100%;
+}
+
+/* Account button styled stronger */
+.btnLink {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #d32f2f;
+  color: #d32f2f;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btnLink:hover {
+  background: #d32f2f;
+  color: #fff;
+}
+
+/* --- Mobile (hamburger menu) --- */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+@media (max-width: 800px) {
+  .links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .mobileMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    min-width: 200px;
+    animation: slideDown 0.25s ease-out;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.userName {
+  font-weight: 600;
+  color: #d32f2f;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(211, 47, 47, 0.1);
+}
+
+@media (max-width: 800px) {
+  .header {
+    position: relative; /* not sticky on mobile */
+    top: auto;
+    box-shadow: none; /* optional: remove shadow to make it cleaner */
+  }
+}
